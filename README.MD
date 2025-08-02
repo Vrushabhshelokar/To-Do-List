@@ -24,7 +24,6 @@ A stylish, responsive To-Do List web app that helps users stay productive by man
 | CSS  | Styling and animations |
 | JavaScript | Functionality and clock logic |
 | Font Awesome | Icons |
-| (Optional) Confetti.js | Success animation |
 
 
 
