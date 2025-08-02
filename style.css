@@ -1,0 +1,353 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Jost", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: auto;
+    overflow: auto;
+    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+
+html { box-sizing: border-box; height: 100%; font-size: 10px; } *, *::before, *::after { box-sizing: inherit; }
+
+
+@keyframes gradient {
+0% {
+    background-position: 0% 0%;
+}
+50% {
+    background-position: 100% 100%;
+}
+100% {
+    background-position: 0% 0%;
+}
+}
+
+.wave {
+background: rgb(255 255 255 / 25%);
+border-radius: 1000% 1000% 0 0;
+position: fixed;
+width: 200%;
+height: 12em;
+animation: wave 10s -3s linear infinite;
+transform: translate3d(0, 0, 0);
+opacity: 0.8;
+bottom: 0;
+left: 0;
+z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+bottom: -1.25em;
+animation: wave 18s linear reverse infinite;
+opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+bottom: -2.5em;
+animation: wave 20s -1s reverse infinite;
+opacity: 0.9;
+}
+
+@keyframes wave {
+2% {
+    transform: translateX(1);
+}
+
+25% {
+    transform: translateX(-25%);
+}
+
+50% {
+    transform: translateX(-50%);
+}
+
+75% {
+    transform: translateX(-25%);
+}
+
+100% {
+    transform: translateX(1);
+}
+} 
+
+.empty {
+  max-width: 100%;
+  height: auto;
+  opacity: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.container{
+    max-width:100%;
+    height: auto;
+    padding: 0 20px;
+    
+}
+
+.to-do-list{
+    max-width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 100px rgba(0,0,0,0.5);
+    border: 3px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(10px);
+
+}
+
+.to-do-list h1{
+    font-size: 2rem;
+}
+
+
+
+.input-area{
+    display: flex;
+    flex-wrap: wrap; /* allow wrapping on small screens */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px; /* optional spacing */
+    padding: 0 10px;
+    box-sizing: border-box;
+    
+}
+
+.input-area input{
+    flex: 1;
+    padding: 10px 17px;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    background-color: rgba(255, 188, 205, 0.3);
+    color: #dbdbdb;
+    min-width: 0; /* prevents overflow on narrow screens */
+    
+}
+.input-area input::placeholder{
+    color: #000;
+    font-size: 1.25rem;
+}
+.input-area button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+    padding: 7px;
+    border-radius: 100%;
+    color: #dbdbdb;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid rgba(255,255,255,0.18);
+    background: rgba(255, 188, 205, 0.3);
+    flex-shrink: 0; /* keep size consistent */
+}
+
+.input-area button:hover{
+    cursor: pointer;
+    transition: all 0.1s;
+    transform: translate(-3px);
+    box-shadow: 0px 3px 6px rgba(250, 242, 242,0.089);
+    background: #bd8895;;
+
+}
+.input-area button:active{
+    cursor:pointer;
+    scale:0.95;
+    transition: all 0.1s;
+}
+
+.to-do-container{
+    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#task-list{
+    width: 100%;
+}
+#task-list li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 188, 205, 0.3);
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    color: #fff;
+    position: relative;
+    transition: box-shadow 0.2s ease;
+
+}
+#task-list li:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#task-list li .checkbox{
+    min-width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    background: transparent;
+    border-radius: 50%;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+}
+
+
+#task-list li .checkbox:checked{
+    background: rgb(98, 204, 98);
+    transform: scale(1.1);
+    
+}
+#task-list li .checkbox:checked::before{
+    content: '\2713';
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+#task-list li span {
+    flex: 1;
+    margin-left: 10px;
+    word-wrap: break-word;
+    font-size: 1.4rem;
+}
+
+#task-list li.completed span{
+    text-decoration: 2px line-through #000;
+    color: #ffffff;
+}
+
+/* edit btn */
+.task-btn{
+    display: flex;
+    gap:10px;
+    margin-right: auto;
+}
+.task-btn button{
+    background: rgba(255,194,209,0.3);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-btn button:hover{
+    transition: scale(1.2);
+}
+.task-btn .edit-btn{
+    background: #fffb00;
+}
+.task-btn .delete-btn{
+    background: #ff6f91;
+}
+
+/*progress bar */
+.StarterContainer{
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.18);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:20px;
+    width: 100%;
+}
+
+.details h3{
+    color: #fff;
+    font-size: 2rem;
+}
+#ProgressBar{
+    width: 100%;
+    height: 7px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 30px;
+    position: relative;
+    margin-top: 0.6rem;
+    
+}
+#Progress{
+    width: 0%;
+    height: 100%;
+    background: #52d874;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+#number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 3rem;
+    backdrop-filter: blur(8px); background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.18);
+    font-weight: bold;
+    border-radius: 50%;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    
+}
+
+.LiveClock{
+    width: 37%;
+    height: auto;
+       
+}
+.clock{
+    width: 100%;
+    height: 100%;
+    background: rgba(235,0,255,0.11);
+    border-radius: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+
+}
+.clock span{
+    font-size: 1.5rem;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    width: 1.5rem;
+
+}
+
